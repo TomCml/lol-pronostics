@@ -19,7 +19,7 @@ const StyledListItem = styled(ListItemButton)`
 const CompetitionLogo = styled('img')`
   width: 80px; // Plus petit conteneur
   height: 48px;
-  object-fit: contain; // Changed from cover to contain
+  object-fit: contain; 
   margin: 0;
   margin-right: 12px;
   padding: 0;
