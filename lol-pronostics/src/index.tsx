@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom'; // Changement ici
 import { ThemeProvider, createTheme } from '@mui/material';
 import App from './App';
 import { UserProvider } from './context/UserContext';
@@ -32,12 +32,12 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter> {/* Remplace BrowserRouter par HashRouter */}
       <ThemeProvider theme={theme}>
         <UserProvider>
           <App />
         </UserProvider>
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
