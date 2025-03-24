@@ -5,15 +5,20 @@ export interface Competition {
 
 export interface Match {
   id: number;
-  team1: string;
-  team2: string;
+  team1: TeamCode;
+  team2: TeamCode;
   date: string;
+  competition_id: number;
+  score1?: number;
+  score2?: number;
 }
 
 export interface RankingData {
   name: string;
   num_bets: number;
   score: number;
+  rank?: number;
+  competition_id?: number;
 }
 
 export interface TeamLogos {

@@ -35,7 +35,7 @@ const TeamInfo = styled('div')`
 
 interface MatchCardProps {
   match: Match;
-  onBetClick: () => void;
+  onBetClick: (team1Logo: string | null, team2Logo: string | null) => void;
 }
 
 type LogosType = Record<TeamCode, string>;
@@ -49,6 +49,10 @@ export const MatchCard = ({ match, onBetClick }: MatchCardProps) => {
 
   const team1Logo = getModifiedUrl(logosData[match.team1 as TeamCode]);
   const team2Logo = getModifiedUrl(logosData[match.team2 as TeamCode]);
+
+  const handleBetClick = () => {
+    onBetClick(team1Logo, team2Logo);
+  };
 
   console.log('Modified URLs:', team1Logo, team2Logo);
 
@@ -71,7 +75,7 @@ export const MatchCard = ({ match, onBetClick }: MatchCardProps) => {
           />
         )}
       </TeamInfo>
-      <StyledButton variant="contained" onClick={onBetClick} size="small">
+      <StyledButton variant="contained" onClick={handleBetClick} size="small">
         Pronostiquer
       </StyledButton>
     </MatchBox>

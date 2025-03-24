@@ -5,7 +5,7 @@ import { MatchCard } from './MatchCard';
 
 interface MatchListProps {
   matches: Match[];
-  onMatchSelect: (match: Match) => void;
+  onMatchSelect: (match: Match, team1Logo: string | null, team2Logo: string | null) => void;
 }
 
 const ScrollableBox = styled(Box)`
@@ -42,7 +42,7 @@ export const MatchList = ({ matches, onMatchSelect }: MatchListProps) => (
           <MatchCard
             key={match.id}
             match={match}
-            onBetClick={() => onMatchSelect(match)}
+            onBetClick={(team1Logo, team2Logo) => onMatchSelect(match, team1Logo, team2Logo)}
           />
         ))}
       </GridLayout>

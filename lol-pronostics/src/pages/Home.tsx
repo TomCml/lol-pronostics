@@ -21,6 +21,7 @@ const Home = () => {
   const [selectedCompetition, setSelectedCompetition] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
+  const [selectedMatchLogos, setSelectedMatchLogos] = useState<{ team1: string | null, team2: string | null }>({ team1: null, team2: null });
   const { userId } = useUser();
 
   useEffect(() => {
@@ -67,6 +68,11 @@ const Home = () => {
     }
   };
 
+  const handleMatchSelect = (match: Match, team1Logo: string | null, team2Logo: string | null) => {
+    setSelectedMatch(match);
+    setSelectedMatchLogos({ team1: team1Logo, team2: team2Logo });
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -84,7 +90,7 @@ const Home = () => {
         <Grid item xs={9}>
           <MatchList
             matches={matches}
-            onMatchSelect={setSelectedMatch}
+            onMatchSelect={(match, team1Logo, team2Logo) => handleMatchSelect(match, team1Logo, team2Logo)}
           />
         </Grid>
       </Grid>
@@ -95,6 +101,8 @@ const Home = () => {
           onClose={() => setSelectedMatch(null)}
           match={selectedMatch}
           onSubmit={handleBetSubmit}
+          team1Logo={selectedMatchLogos.team1}
+          team2Logo={selectedMatchLogos.team2}
         />
       )}
     </StyledContainer>
