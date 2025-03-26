@@ -13,9 +13,8 @@ const TeamLogo = styled('img')`
 const MatchBox = styled(Box)`
   padding: 16px;
   margin-bottom: 8px;
-  background-color: var(--primary-color);
+  background-color:rgb(46, 46, 46);
   border-radius: 8px;
-  border: 1px solid var(--secondary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +22,9 @@ const MatchBox = styled(Box)`
   width: 100%;
   height: 100px;
   box-sizing: border-box;
+  &:hover {
+    background-color: rgba(255, 63, 9, 0.1);
+  }
 `;
 
 const TeamInfo = styled('div')`
